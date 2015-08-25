@@ -1,0 +1,288 @@
+/*****-----------产品列表页------------*****/
+article header h2{
+    font-size: 16px;
+    color: #444;
+    border-bottom: 1px solid #d6d6d6;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+#body_wrapper li{
+    display: inline-block;
+    vertical-align: top;
+}
+.piclist li{
+    width: 202px;
+    height: 149px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.piclist li:nth-child(3n+3){
+    margin-right: 0px;
+}
+.piclist li img{
+    width: 202px;
+    height: 124px;
+    border-radius: 9px;
+}
+.piclist li a{
+    color: #444;
+    text-decoration: none;
+}
+/*定义动画*/
+/*safira和chrome*/
+@-webkit-keyframes piclist{
+    0%{
+        /*注意：联合使用多个动画效果*/
+        -webkit-transform:rotate(0deg) scale(1);
+        transform:rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+    40%{
+        -webkit-transform:rotate(60deg) scale(1.8);
+        transform:rotate(60deg) scale(2);
+        opacity: 0.9;
+    }
+    60%{
+        -webkit-transform:rotate(30deg) scale(1.3);
+        transform:rotate(30deg) scale(1.3);
+        opacity: 0.3;
+        border-radius:50px;
+    }
+    90%{
+        -webkit-transform:rotate(0deg) scale(0.8);
+        transform:rotate(0deg) scale(0.8);
+        opacity: 1;
+        border-radius: 11%;
+    }
+}
+/*火狐*/
+@-moz-keyframes piclist{
+    0%{
+        /*注意：联合使用多个动画效果*/
+        -moz-transform:rotate(0deg) scale(1);
+        transform:rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+    40%{
+        -moz-transform:rotate(60deg) scale(1.8);
+        transform:rotate(60deg) scale(2);
+        opacity: 0.9;
+    }
+    60%{
+        -moz-transform:rotate(30deg) scale(1.3);
+        transform:rotate(30deg) scale(1.3);
+        opacity: 0.3;
+        border-radius:50px;
+    }
+    90%{
+        -moz-transform:rotate(0deg) scale(0.8);
+        transform:rotate(0deg) scale(0.8);
+        opacity: 1;
+        border-radius: 11%;
+    }
+}
+/*IE9以上*/
+@-ms-keyframes piclist{
+    0%{
+        /*注意：联合使用多个动画效果*/
+        -ms-transform:rotate(0deg) scale(1);
+        transform:rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+    40%{
+        -ms-transform:rotate(60deg) scale(1.8);
+        transform:rotate(60deg) scale(2);
+        opacity: 0.9;
+    }
+    60%{
+        -ms-transform:rotate(30deg) scale(1.3);
+        transform:rotate(30deg) scale(1.3);
+        opacity: 0.3;
+        border-radius:50px;
+    }
+    90%{
+        -ms-transform:rotate(0deg) scale(0.8);
+        transform:rotate(0deg) scale(0.8);
+        opacity: 1;
+        border-radius: 11%;
+    }
+
+}
+/*使用动画*/
+.piclist li:hover img{
+    -webkit-animation-name:piclist;/*动画名称*/
+    -moz-animation-name:piclist;
+    -ms-animation-name:piclist;
+    -o-animation-name:piclist;
+    animation-name:piclist;
+    -webkit-animation-duration:1s;/*动画执行完成的时间*/
+    -moz-animation-duration:1s;
+    -ms-animation-duration:1s;
+    -o-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-timing-function:linear;/*实现动画的方法*/
+    -moz-animation-timing-function:linear;
+    -ms-animation-timing-function:linear;
+    -o-animation-timing-function:linear;
+    animation-timing-function:linear;
+    /*-webkit-animation-iteration-count:1;*//*动画播放次数*/
+}
+
+/*翻页按钮*/
+section.listnav{
+    margin-top: 20px;
+}
+.listnav li{
+    padding: 3px 10px;
+    background: rgb(53,152,219);
+    margin-right: 10px;
+    -webkit-transition:background 0.5s linear;
+    -moz-transition:background 0.5s linear;
+    -ms-transition:background 0.5s linear;
+    -o-transition:background 0.5s linear;
+    transition:background 0.5s linear;
+}
+.listnav li.on,.listnav li:hover{
+    background: #444;
+}
+#body_wrapper .listnav li a{
+    color: #fff;
+    text-decoration: none;
+}
+/*主体右侧：热门文章推荐*/
+section#tuijianlist{
+    margin-top: 20px;
+}
+.toplist_tit h3{
+    color: #444;
+    border-bottom: 1px solid #2AE9F9;
+    padding-bottom: 6px;
+}
+section.toplist li:before{
+    content: counter(listnum);
+    background: #444;
+    padding: 2px 5px;
+    color: #fff;
+    margin-right: 5px;
+}
+section.toplist li{
+    width: 100%;
+    margin-top: 14px;
+    overflow: hidden;
+    white-space: nowrap;/*设置不换行*/
+    text-overflow: ellipsis;/*多余的用...来代替*/
+    /*vertical-align: bottom;*/
+    /*display: inline-block;*/
+    counter-increment: listnum;
+}
+section.toplist li:first-child:before,section.toplist li:nth-child(2):before,section.toplist li:nth-child(3):before{
+    background: #3598DC;
+}
+section.toplist li:last-child:before{
+    padding: 2px 2px;
+    font-size: 14px;
+}
+section.toplist a{
+    color: #444444;
+    text-decoration: none;
+}
+section.toplist li:hover{
+    text-shadow: 1px 4px 4px #000;
+    -webkit-transition:all 0.6s linear;
+    -moz-transition:all 0.6s linear;
+    -ms-transition:all 0.6s linear;
+    -o-transition:all 0.6s linear;
+    transition:all 0.6s linear;
+}
+/******--------------------新闻列表页--------------------******/
+section.newslist li{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    -webkit-transition:text-shadow 0.5s linear;
+    -moz-transition:text-shadow 0.5s linear;
+    -ms-transition:text-shadow 0.5s linear;
+    -o-transition:text-shadow 0.5s linear;
+    transition:text-shadow 0.5s linear;
+}
+section.newslist li:hover{
+    text-shadow:1px 4px 5px #000;
+}
+/*每隔5个加一个下划线*/
+.newslist li:nth-child(5n+5){
+    border-bottom: 1px solid #d6d6d6;
+    padding-bottom: 10px;
+}
+.newslist li:last-child{
+    border: 0;
+}
+.newslist li a{
+    width: 510px;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #444;
+}
+.newslist li time{
+    display: inline-block;
+    vertical-align: top;
+    width: 118px;
+    text-align: center;
+}
+/******--------------------内容列表页--------------------******/
+section.contentlist header{
+    display: inline-block;
+    border-bottom: 1px solid #d6d6d6;
+    padding-bottom: 10px;
+    width: 100%;
+}
+section.contentlist h2{
+    color: #444;
+    font-size: 20px;
+    /*padding-bottom: 10px;*/
+    border: 0;
+}
+section.contentlist .title_bar{
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 26px;
+    margin-right: 20px;
+}
+section.contentlist .fengxiang{
+    display: inline-block;
+    vertical-align: bottom;
+}
+section.contentlist a{
+    text-decoration: none;
+    color: #70CCF9;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+section.contentlist time{
+    font-size: 14px;
+    color: #444;
+}
+section.contentlist div.content_nr{
+    color: #444;
+    text-indent: 31px;
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 26px;
+}
+.xiangguanyuedu{
+    margin-top: 20px;
+    line-height: 24px;
+}
+.xiangguanyuedu a{
+    text-decoration: none;
+    color: #3598db;
+    margin-right: 10px;
+    height: 24px;
+    width: 236px;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 10px;
+    vertical-align: bottom;
+}

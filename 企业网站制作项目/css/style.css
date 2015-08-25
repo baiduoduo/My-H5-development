@@ -1,0 +1,586 @@
+/*公共样式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /*background-color: #f3f3f3;*/
+    font-family: "微软雅黑";
+}
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+.titlt_bg{
+    height: 45px;
+    line-height: 45px;
+    background: #EFF0F9;
+    padding-left: 10px;
+    border-top: 3px solid #2f89c5;
+}
+.titlt_bg h2 a{
+    color: #444444;
+    font-size: 16px;
+    text-decoration: none;
+}
+img{
+    border: 0;
+}
+/*头部样式*/
+div#logo{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 12px;
+    /*width: 755px;*/
+    width: 675px;
+    height: 98px;
+}
+div#sousuo{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 40px;
+    text-align: right;
+    width: 240px;
+}
+input[type="text"]{
+    border: 1px solid #ccc;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+    width: 165px;
+    vertical-align: top;/*顶部对齐*/
+}
+input[type="submit"]{
+    background-color: #3598db;
+    color: #fff;
+    border: solid 1px #3598db;
+    height: 40px;
+    width: 40px;
+    box-sizing:content-box;
+    font-size: 20px;
+    padding: 0 10px;
+    vertical-align: top;
+}
+div#nav{
+    background-color: #3598db;
+    height: 60px;
+}
+div#nav li{
+    display: inline-block;
+    line-height: 60px;
+    padding: 0 10px;
+    border-right: 1px solid #2f89c5;
+}
+div#nav li.on,div#nav li:hover{
+    background-color: #2f89c5;
+}
+div#nav a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+}
+/*内容主体样式*/
+div#body_wrapper{
+    margin-top:20px;
+}
+div#body_wrapper article{/*主体左侧*/
+    width: 628px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+div#body_wrapper aside{/*主体右侧*/
+    width: 352px;
+    display: inline-block;
+    vertical-align: top;
+}
+/*轮播图的样式start*/
+section#lunbotu{
+    box-shadow: 1px 4px 15px #A39F9F;
+}
+li{
+    list-style: none;
+}
+div.con{
+    /*margin: 30px auto;*/
+    /*width: 759px;*/
+    /*height: 280px;*/
+    width: 628px;
+    height: 278px;
+    overflow: hidden;
+
+    /*-moz-box-shadow: 0px 0px 5px #222;*/
+    /*-webkit-box-shadow: 0px 0px 5px #222;*/
+    /*box-shadow: 0px 0px 5px #222;*/
+
+    /*border: 8px solid transparent;*//*transparent透明色*/
+
+    /*-moz-border-radius: 4px;*/
+    /*-webkit-border-radius: 4px;*/
+    /*border-radius: 4px;*/
+
+    position: relative;
+}
+/*'>'表示con下的input和a*/
+.con > input,.con > a{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    bottom: 5px;
+}
+
+/*con下的input*/
+.con input{
+    z-index: 100;
+    opacity: 0;
+    cursor: pointer;
+}
+/*被选中的input后面的a*/
+.con input:checked + a{/*+号表示紧跟在当前元素后面的一个元素。~表示后面所有的*/
+    background-color: #3598db;
+}
+.con a{
+    z-index: 10;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    background-color: grey;
+}
+
+/*control-1和#control-1后面的a*/
+#control-1,#control-1 + a{
+    left: 75%;
+}
+#control-2,#control-2 + a{
+    left: 80%;
+}
+#control-3,#control-3 + a{
+    left: 85%;
+}
+#control-4,#control-4 + a{
+    left: 90%;
+}
+/*设置轮播图片大小*/
+.panel img{
+    width: 628px;
+    height: 278px;
+}
+/*图片内容*/
+.scroll,.panel{
+    position: relative;
+    /*height: 280px;*/
+    height: 278px;
+}
+.panel{
+    float: left;
+}
+.scroll{
+    left: 0;
+    top: 0;
+    /*width: 3036px;*/
+    width: 2512px;
+
+    /*-webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    -o-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);*/
+
+    -webkit-backface-visibility:hidden;/*只有面向屏幕时才显示*/
+
+    -webkit-transition:all 0.6s ease-in-out;
+    -moz-transition:all 0.6s ease-in-out;
+    -o-transition:all 0.6s ease-in-out;
+    transition:all 0.6s ease-in-out;
+}
+/*根据被点中的按钮找到包含图片的容器，改变它的水平坐标。‘~’没有强调紧跟，只要在后面就行*/
+#control-1:checked ~ .scroll{
+    -webkit-transform:translateX(0%);
+    -moz-transform:translateX(0%);
+    -o-transform:translateX(0%);
+    transform:translateX(0%);
+}
+#control-2:checked ~ .scroll{
+    -webkit-transform:translateX(-25%);
+    -moz-transform:translateX(-25%);
+    -o-transform:translateX(-25%);
+    transform:translateX(-25%);
+}
+#control-3:checked ~ .scroll{
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+    transform:translateX(-50%);
+}
+#control-4:checked ~ .scroll{
+    -webkit-transform:translateX(-75%);
+    -moz-transform:translateX(-75%);
+    -o-transform:translateX(-75%);
+    transform:translateX(-75%);
+}
+.pre_next{
+    position: absolute;
+    top: 38%;
+    width: 30px;
+    height: 60px;
+    opacity:0.3;
+    cursor:pointer;
+}
+.pre_next:hover{
+    opacity: 0.8;
+}
+#pre{
+    left: 7px;
+    background: grey  url(../images/prev.png) no-repeat center;
+}
+#next{
+    left: 94%;
+    background: grey  url(../images/next.png) no-repeat center;
+}
+
+div#tit-wrap1,div#tit-wrap2{
+    width: 240px;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    line-height: 30px;
+}
+div#tit-wrap1{
+    opacity: 0.3;
+    background-color: #000;
+}
+div#tit-wrap2{
+    color: #fff;
+    left: 10px;
+}
+div#tit-wrap2:hover{
+   cursor: pointer;
+}
+/*轮播图的样式end*/
+/*新闻部分*/
+section#xinwen{
+    margin-top: 20px;
+}
+section#xinwen li{
+    width: 100%;
+    display: inline-block;
+    vertical-align:bottom;
+    margin-top: 10px;
+
+}
+section#xinwen li img{
+    width: 315px;
+    height: 165px;
+    box-sizing: border-box;
+}
+section#xinwen li a{
+    display: inline-block;
+    vertical-align: top;
+    height: 165px;
+}
+section#xinwen li a.ms{
+    width: 308px;
+    background-color: rgb(53,152,220);
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    -webikt-box-sizing: border-box;
+    -moz-box-sizing: border-box;/*火狐*/
+    -ms-box-sizing: border-box;/*ie*/
+    -o-box-sizing: border-box;
+    box-sizing: border-box;/*标准写法*/
+
+    position: relative;
+}
+section#xinwen a.ms h3{
+    border-bottom: 1px solid #fff;
+    margin-bottom: 5px;
+    width: 288px;
+    height: 30px;
+    overflow: hidden;
+}
+.sanjiaoxing{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(53,152,220);
+    position: absolute;
+    top: 25px;
+    left: -10px;
+    transform: rotate(45deg);
+}
+/*集团活动*/
+section#huodong{
+    margin-top: 20px;
+}
+section#huodong_a{
+    margin-top: 10px;
+}
+section#huodong_a li{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 9px;
+}
+section#huodong_a li:last-child{
+    margin-right: 0px;
+}
+section#huodong_a li img{
+    width: 150px;
+    height:150px;
+}
+/*集团活动左边——标题*/
+section#huodong_b{
+    width: 469px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-right: 9px;
+}
+section#huodong_b li:before{
+    content: counter(listnum);
+    background: #444;
+    padding: 2px 5px;
+    color: #fff;
+    margin-right: 5px;
+}
+section#huodong_b li{
+    width: 100%;
+    margin-top: 16px;
+    overflow: hidden;
+    white-space: nowrap;/*设置不换行*/
+    text-overflow: ellipsis;/*多余的用...来代替*/
+    /*vertical-align: bottom;*/
+    /*display: inline-block;*/
+    counter-increment: listnum;
+}
+section#huodong_b li:first-child:before,section#huodong_b li:nth-child(2):before,section#huodong_b li:nth-child(3):before{
+    background: #3598DC;
+}
+section#huodong_b li:last-child:before{
+    padding: 2px 2px;
+    font-size: 14px;
+}
+section#huodong_b a{
+    color: #444444;
+    text-decoration: none;
+}
+section#huodong_b li:hover{
+    text-shadow: 1px 4px 4px #000;
+    -webkit-transition:all 0.6s linear;
+    -moz-transition:all 0.6s linear;
+    -ms-transition:all 0.6s linear;
+    -o-transition:all 0.6s linear;
+    transition:all 0.6s linear;
+}
+/*集团活动右边——图片*/
+section#huodong_c{
+    width: 150px;
+    display: inline-block;
+}
+section#huodong_c li{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+}
+section#huodong_c li:first-child,section#huodong_c li:first-child img{
+    width: 150px;
+    height: 205px;
+}
+section#huodong_c li:last-child,section#huodong_c li:last-child img{
+    width: 150px;
+    height: 150px;
+}
+/*博文信息*/
+section#bowen_a li{
+    display: inline-block;
+    margin-top: 10px;
+    vertical-align: top;
+    /*height: 208px;*/
+    width: 172px;
+    height: 136px;
+    text-align: center;
+}
+section#bowen_a li:first-child{ /*第一个人li*/
+    margin-right: 8px;
+}
+section#bowen_a li a{
+    text-decoration: none;
+    color: #444;
+    display: inline-block;
+    width: 100%;
+}
+section#bowen_a li a:first-child{
+    width: 172px;
+    /*height: 180px;*/
+    height: 111px;
+}
+section#bowen_a li a:last-child{
+    height: 21px;
+    overflow: hidden;
+}
+section#bowen_a li img{
+    width: 172px;
+    /*height: 180px;*/
+    height: 111px;
+}
+section#bowen_b{
+
+}
+section#bowen_b li:before{
+    content: counter(listnum);
+    background: #3598DC;
+    padding: 2px 5px;
+    color: #fff;
+    margin-right: 5px;
+}
+section#bowen_b li{
+    width: 100%;
+    margin-top: 7px;
+    overflow: hidden;
+    white-space: nowrap;/*设置不换行*/
+    text-overflow: ellipsis;/*多余的用...来代替*/
+    /*vertical-align: bottom;*/
+    /*display: inline-block;*/
+    counter-increment: listnum;
+}
+section#bowen_b li:first-child:before,section#bowen_b li:nth-child(2):before,section#bowen_b li:nth-child(3):before{
+    background: #3598DC;
+}
+section#bowen_b a{
+    color: #444444;
+    text-decoration: none;
+}
+section#bowen_b li:hover{
+    text-shadow: 1px 4px 4px #000;
+    -webkit-transition:all 0.6s linear;
+    -moz-transition:all 0.6s linear;
+    -ms-transition:all 0.6s linear;
+    -o-transition:all 0.6s linear;
+    transition:all 0.6s linear;
+}
+/*职位（招聘）信息*/
+section#zhaopin{
+    margin-top: 20px;
+}
+section#zhaopin li:before{
+    content: counter(listnum);
+    background: #3598DC;
+    padding: 2px 5px;
+    color: #fff;
+    margin-right: 5px;
+}
+section#zhaopin li{
+    width: 100%;
+    margin-top: 14px;
+    overflow: hidden;
+    white-space: nowrap;/*设置不换行*/
+    text-overflow: ellipsis;/*多余的用...来代替*/
+    /*vertical-align: bottom;*/
+    /*display: inline-block;*/
+    counter-increment: listnum;
+}
+section#zhaopin li:first-child:before,section#zhaopin li:nth-child(2):before,section#zhaopin li:nth-child(3):before{
+    background: #3598DC;
+}
+section#zhaopin li:last-child:before{
+    padding: 2px 2px;
+    font-size: 14px;
+}
+section#zhaopin a{
+    color: #444444;
+    text-decoration: none;
+}
+section#zhaopin li:hover{
+    text-shadow: 1px 4px 4px #000;
+    -webkit-transition:all 0.6s linear;
+    -moz-transition:all 0.6s linear;
+    -ms-transition:all 0.6s linear;
+    -o-transition:all 0.6s linear;
+    transition:all 0.6s linear;
+}
+/*联系我们*/
+section#lianxi{
+    margin-top: 10px;
+}
+section#lianxi a,section#lianxi a img{
+    display: inline-block;
+    width: 352px;
+    height: 199px;
+}
+/*子公司*/
+section#zigongsi{
+
+}
+section#zigongsi li{
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin-top: 10px;
+}
+section#zigongsi li a{
+    display: inline-block;
+    text-decoration: none;
+    color: #444;
+    vertical-align: top;
+}
+section#zigongsi li h4{
+    font-size: 16px;
+    height: 28px;
+    line-height: 28px;
+}
+.zgsjj{
+    -webkit-transition:padding 0.5s linear;
+    -moz-transition:padding 0.5s linear;
+    -ms-transition:padding 0.5s linear;
+    -o-transition:padding 0.5s linear;
+    transition:padding 0.5s linear;
+}
+.zgsjj:hover{
+    border: 1px solid #3598db;
+    padding: 10px 0;
+
+}
+.zgsjj a img{
+    width: 170px;
+    height: 50px;
+}
+.zgsjj a:first-child{
+    width: 170px;
+    height: 50px;
+}
+.zgsjj a:last-child{
+    width: 175px;
+    font-size: 13px;
+    height: 50px;
+    overflow: hidden;
+}
+/*网站尾部*/
+#footer_wrapper{
+    background: #3598db;
+    margin-top: 20px;
+    padding: 40px 0;
+}
+#footer_wrapper li{
+    display: inline-block;
+    /*vertical-align: top;*/
+    padding: 0 10px;
+    border-right: 1px solid #ffffff;
+}
+#footer_wrapper li:last-child{
+    border: 0;
+}
+#footer_wrapper footer{
+    text-align: center;
+}
+#footer_wrapper li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+#footer_wrapper p{
+    color: #ffffff;
+    margin-top: 10px;
+}
